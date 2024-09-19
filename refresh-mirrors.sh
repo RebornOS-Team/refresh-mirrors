@@ -73,7 +73,16 @@ elif [ "$MIRROR_COUNT" -lt "$MIN_MIRRORS" ]; then
     echo "" 
 else    
     echo ""  
-    set -o xtrace      
+    set -o xtrace
+    sed -i '/^\s*#/d' "$TEMP_FILE" # Remove commented lines
+    sed -i '/^\s*$/d' "$TEMP_FILE" # Remove lines that consist entirely of whitespaces
+    touch "$TEMP_FILE""_1"
+    touch "$TEMP_FILE""_2"
+    cat "$TEMP_FILE" | grep -Ei 'repo.rebornos.org/RebornOS/|soulharsh007.dev/RebornOS/' > "$TEMP_FILE""_1" # Collect mirrors that are updated earlier
+    cat "$TEMP_FILE" | grep -vEi 'repo.rebornos.org/RebornOS/|soulharsh007.dev/RebornOS/' > "$TEMP_FILE""_2" # Collect mirrors that are updated later
+    cat /dev/null > "$TEMP_FILE"
+    cat "$TEMP_FILE"_1 >> "$TEMP_FILE" # Add mirrors that update earlier at the top
+    cat "$TEMP_FILE"_2 >> "$TEMP_FILE" # Add mirrors that update later, below
     pkexec cp -f "$TEMP_FILE" "$MIRRORLIST_FILE"
     set +o xtrace
     echo ""

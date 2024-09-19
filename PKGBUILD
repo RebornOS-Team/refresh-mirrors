@@ -1,5 +1,5 @@
 pkgname='refresh-mirrors'
-pkgver=0.0.24
+pkgver=0.0.25
 pkgrel=1
 pkgdesc='Just some convenient shortcuts for running the `rate-mirrors` tool (https://github.com/westandskif/rate-mirrors) for RebornOS. This is *NOT* a fork, but just a wrapper for shortcuts that call the tool.'
 arch=('any')
@@ -15,7 +15,7 @@ options=()
 install=
 source=('refresh-mirrors.sh' 'org.rebornos.refresh_mirrors.policy' 'refresh-mirrors.service' 'refresh-mirrors.desktop' 'refresh-mirrors.svg')
 noextract=()
-sha256sums=('e2b086021654a795289fa3fbaa6b1039a1fd528f5093ed67755b85bcca47f918'
+sha256sums=('644ef8fafc53d1a107b954d91c29869a1411de4d6127a04c9b4f3c9cfff0c55a'
             '46cef1409ead750734f08c9caf8279ef5d1d41b36efabb65f334a0c339e9a1fa'
             '03f2b3a6275c63a2ebfdba0b1d4281fe7dc6bed18525fd2b86b48058c8ff41a0'
             '71677a440f1d8ff6b03d576969b3f45401644b7bdc07d039202f1603b95f952a'
